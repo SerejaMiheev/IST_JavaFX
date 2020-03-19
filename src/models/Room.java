@@ -13,6 +13,20 @@ public class Room extends EntityClass {
 
     public Room(){}
 
+    public Room(int NumberRoom){
+        this.NumberRoom.set(NumberRoom);
+    }
+
+    public Room(boolean status, int NumberRoom){
+        this.status.set(status);
+        this.NumberRoom.set(NumberRoom);
+    }
+
+    public Room(List equipments, int NumberRoom){
+        this.equipments.setAll(equipments);
+        this.NumberRoom.set(NumberRoom);
+    }
+
     public Room(boolean status, List equipments, int NumberRoom){
         this.status.set(status);
         this.equipments.setAll(equipments);

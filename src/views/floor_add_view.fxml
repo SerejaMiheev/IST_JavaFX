@@ -39,8 +39,8 @@
       </Label>
       <TableView fx:id="roomTableView" prefHeight="321.0" prefWidth="354.0">
         <columns>
-          <TableColumn fx:id="numRoom" prefWidth="224.0" text="Номер" />
-          <TableColumn fx:id="addRoom" prefWidth="129.0" text="Добавить" />
+          <TableColumn fx:id="numRoom" prefWidth="218.0" resizable="false" text="Номер" />
+          <TableColumn fx:id="addRoom" prefWidth="133.0" resizable="false" text="Добавить" />
         </columns>
       </TableView>
       <HBox prefHeight="60.0" prefWidth="354.0" spacing="10.0">

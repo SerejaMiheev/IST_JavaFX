@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FloorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="322.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FloorController">
    <children>
       <HBox prefHeight="54.0" prefWidth="600.0" spacing="10.0">
          <children>
@@ -20,7 +23,7 @@
       <TableView fx:id="floorTable" prefHeight="260.0" prefWidth="441.0">
         <columns>
           <TableColumn fx:id="floorColumn" prefWidth="150.19997864961624" resizable="false" text="Этаж" />
-          <TableColumn fx:id="countFloor" prefWidth="246.6000518798828" resizable="false" text="Кол-во комнат" />
+          <TableColumn fx:id="countFloor" prefWidth="238.0" resizable="false" text="Кол-во комнат" />
         </columns>
       </TableView>
    </children>

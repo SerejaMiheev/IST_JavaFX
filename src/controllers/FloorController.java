@@ -44,7 +44,12 @@ public class FloorController {
 
     public void Del(){}
 
-    public void Edit(){}
+    public void Edit() throws IOException {
+        Floor floor = this.floorTable.getSelectionModel().getSelectedItem();
+        if (floor != null) {
+            this.app.OpenFloorAdd(floor);
+        }
+    }
 
     public void View(){}
 }

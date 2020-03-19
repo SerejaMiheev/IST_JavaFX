@@ -81,7 +81,9 @@ public class Floor extends EntityClass {
     }
 
     public String getNumberStr(){
-        return number.toString();
+        StringBuilder result = new StringBuilder("");
+        result.append(number.get());
+        return result.toString();
     }
 
     public String toString(){

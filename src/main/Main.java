@@ -6,12 +6,11 @@ import controllers.FloorController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.Floor;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 public class Main extends Application {
 
@@ -58,6 +57,19 @@ public class Main extends Application {
         addfloor.show();
     }
 
+    public void OpenFloorAdd(Floor floor) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/floor_add_view.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage addfloor = new Stage();
+        addfloor.setScene(new Scene(root));
+        addfloor.setTitle("Редактирование этажа");
+        addfloor.setResizable(false);
+        AddFloorController addFloorController = loader.getController();
+        addFloorController.setFloor(floor);
+        addfloor.show();
+    }
 
     public static void main(String[] args) {
         launch(args);
