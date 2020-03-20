@@ -1,24 +1,22 @@
 package models;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.*;
 import javafx.collections.ObservableList;
 
 import java.util.List;
 
 public class Floor extends EntityClass {
-    private IntegerProperty number = new SimpleIntegerProperty();
+    private StringProperty number = new SimpleStringProperty();
     private ObservableList<Room> roomonfloor = new SimpleListProperty<>();
     private IntegerProperty countRoom = new SimpleIntegerProperty();
 
     public Floor(){}
 
-    public Floor(int number){
+    public Floor(String number){
         this.number.set(number);
     }
 
-    public Floor(List roomonfloor, int number){
+    public Floor(List roomonfloor, String number){
         this.roomonfloor.setAll(roomonfloor);
         this.number.set(number);
     }
@@ -27,7 +25,7 @@ public class Floor extends EntityClass {
         roomonfloor.size();
     }
 
-    public IntegerProperty numberProperty() {
+    public StringProperty numberProperty() {
         return number;
     }
 
@@ -44,9 +42,6 @@ public class Floor extends EntityClass {
     public int getCount() {
         return countRoom.get();
     }
-    public void setCountRoom(int countRoom) {
-        this.countRoom.set(countRoom);
-    }
 
     public void setRoomonfloor(ObservableList<Room> roomonfloor) {
         this.roomonfloor = roomonfloor;
@@ -60,7 +55,7 @@ public class Floor extends EntityClass {
         this.roomonfloor.add(roomonfloor);
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number.set(number);
     }
 
@@ -76,14 +71,12 @@ public class Floor extends EntityClass {
         return roomonfloor;
     }
 
-    public int getNumber(){
+    public String getNumber(){
         return number.get();
     }
 
-    public String getNumberStr(){
-        StringBuilder result = new StringBuilder("");
-        result.append(number.get());
-        return result.toString();
+    public StringProperty getNumberProperty() {
+        return number;
     }
 
     public String toString(){

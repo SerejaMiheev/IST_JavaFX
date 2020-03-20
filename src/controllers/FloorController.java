@@ -18,7 +18,7 @@ public class FloorController {
     @FXML
     TableView<Floor> floorTable;
     @FXML
-    TableColumn<Floor,Number> floorColumn;
+    TableColumn<Floor,String> floorColumn;
     @FXML
     TableColumn<Floor,Number> countFloor;
 
@@ -29,7 +29,7 @@ public class FloorController {
     @FXML
     public void initialize(){
         floorTable.setItems(floors);
-        floorColumn.setCellValueFactory(item -> item.getValue().numberProperty());
+        floorColumn.setCellValueFactory(item -> item.getValue().getNumberProperty());
         countFloor.setCellValueFactory(cellDate -> cellDate.getValue().countRoomProperty());
     }
 
@@ -39,15 +39,23 @@ public class FloorController {
 
     public void Add() throws IOException {
         Floor floor = new Floor();
-        this.app.OpenFloorAdd();
+        this.app.OpenFloorAdd(floor);
+        this.floors.add(floor);
+        //TODO Пустой item, при нажатии отмены
     }
 
-    public void Del(){}
+    public void Del(){
+        Floor floor = this.floorTable.getSelectionModel().getSelectedItem();
+        if (floor != null) {
+            this.floorGateway.delete(floor.getId());
+            this.floors.remove(floor);
+        }
+    }
 
     public void Edit() throws IOException {
         Floor floor = this.floorTable.getSelectionModel().getSelectedItem();
         if (floor != null) {
-            this.app.OpenFloorAdd(floor);
+            this.app.OpenFloorEdit(floor);
         }
     }
 

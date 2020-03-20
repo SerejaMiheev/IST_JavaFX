@@ -44,20 +44,21 @@ public class Main extends Application {
         viewfloor.show();
     }
 
-    public void OpenFloorAdd() throws IOException {
+    public void OpenFloorAdd(Floor floor) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/floor_add_view.fxml"));
 
         VBox root = (VBox)loader.load();
         Stage addfloor = new Stage();
         addfloor.setScene(new Scene(root));
-        addfloor.setTitle("Добаить этаж");
+        addfloor.setTitle("Добавить этаж");
         addfloor.setResizable(false);
         AddFloorController addFloorController = loader.getController();
+        addFloorController.setFloor(floor);
         addfloor.show();
     }
 
-    public void OpenFloorAdd(Floor floor) throws IOException {
+    public void OpenFloorEdit(Floor floor) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/floor_add_view.fxml"));
 

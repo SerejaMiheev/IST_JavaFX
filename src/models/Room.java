@@ -2,6 +2,7 @@ package models;
 
 import javafx.beans.property.*;
 import javafx.collections.ObservableList;
+import javafx.scene.control.CheckBox;
 import models.Equipment;
 
 import java.util.List;
@@ -10,6 +11,7 @@ public class Room extends EntityClass {
     private BooleanProperty status = new SimpleBooleanProperty();
     private IntegerProperty NumberRoom = new SimpleIntegerProperty();
     private ObservableList<Equipment> equipments = new SimpleListProperty<>();
+    private CheckBox select;
 
     public Room(){}
 
@@ -81,6 +83,14 @@ public class Room extends EntityClass {
 
     public void setEquipments(ObservableList<Equipment> equipments) {
         this.equipments = equipments;
+    }
+
+    public CheckBox getSelect() {
+        return select;
+    }
+
+    public void setSelect(CheckBox select) {
+        this.select = select;
     }
 
     public String toString(){

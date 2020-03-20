@@ -2,57 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/META-INF/OOP_JavaFX.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/controllers/AddFloorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/controllers/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/controllers/FloorController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/controllers/Floor_Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/exceptions/EntityNotFound.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/CameraGateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/EquipmentGateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/EventGateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/FloorGateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/Gateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/PersonGateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/RoomGateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/SectionGateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/SimpleGateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/gw/TypeGateway.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/main/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/models/Camera.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/models/EntityClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/models/Equipment$TypeOfEquipments.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/models/Equipment.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/models/Event.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/models/Floor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/models/Person.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/models/Room.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/models/Section.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/registry/GWRegistry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/sample/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/sample/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/sample/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/add_equip.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/equip_det_view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/floor_add_view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/floor_det_view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/floor_view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/gen_event.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/room_add_view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/room_det_view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/room_view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/sample.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/OOP_JavaFX/views/type_equp_view.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/AddFloorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AddFloorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/FloorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/FloorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gw/RoomGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gw/RoomGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gw/FloorGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gw/FloorGateway.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gw/SimpleGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gw/SimpleGateway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Floor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Floor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/floor_add_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/floor_add_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/floor_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/floor_view.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,6 +96,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -145,6 +104,9 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -271,6 +233,7 @@
       <workItem from="1584552577086" duration="925000" />
       <workItem from="1584626665809" duration="391000" />
       <workItem from="1584634804928" duration="8116000" />
+      <workItem from="1584706966902" duration="17000000" />
     </task>
     <servers />
   </component>

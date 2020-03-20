@@ -26,7 +26,7 @@ public class SimpleGateway<T extends EntityClass> implements Gateway<T> {
     }
 
     @Override
-    public  void insert(T object){
+    public void insert(T object){
         int your_id = ++id;
         db.put(your_id, object);
         object.setId(your_id);
