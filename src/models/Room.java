@@ -8,10 +8,9 @@ import models.Equipment;
 import java.util.List;
 
 public class Room extends EntityClass {
-    private BooleanProperty status = new SimpleBooleanProperty();
     private IntegerProperty NumberRoom = new SimpleIntegerProperty();
     private ObservableList<Equipment> equipments = new SimpleListProperty<>();
-    private CheckBox select;
+    private CheckBox selected = new CheckBox();
 
     public Room(){}
 
@@ -19,30 +18,9 @@ public class Room extends EntityClass {
         this.NumberRoom.set(NumberRoom);
     }
 
-    public Room(boolean status, int NumberRoom){
-        this.status.set(status);
-        this.NumberRoom.set(NumberRoom);
-    }
-
     public Room(List equipments, int NumberRoom){
         this.equipments.setAll(equipments);
         this.NumberRoom.set(NumberRoom);
-    }
-
-    public Room(boolean status, List equipments, int NumberRoom){
-        this.status.set(status);
-        this.equipments.setAll(equipments);
-        this.NumberRoom.set(NumberRoom);
-    }
-
-    public Room(boolean status, Equipment equipments, int NumberRoom){
-        this.status.set(status);
-        this.equipments.add(equipments);
-        this.NumberRoom.set(NumberRoom);
-    }
-
-    public void setStatus(boolean status) {
-        this.status.set(status);
     }
 
     public void setNumberRoom(int numberRoom) {
@@ -57,24 +35,12 @@ public class Room extends EntityClass {
         this.equipments.add(equipments);
     }
 
-    public boolean getStatus(){
-        return status.get();
-    }
-
     public int getNumberRoom() {
         return NumberRoom.get();
     }
 
     public List getEquipments() {
         return equipments;
-    }
-
-    public boolean isStatus() {
-        return status.get();
-    }
-
-    public BooleanProperty statusProperty() {
-        return status;
     }
 
     public IntegerProperty numberRoomProperty() {
@@ -85,16 +51,16 @@ public class Room extends EntityClass {
         this.equipments = equipments;
     }
 
-    public CheckBox getSelect() {
-        return select;
+    public CheckBox getSelected() {
+        return selected;
     }
 
-    public void setSelect(CheckBox select) {
-        this.select = select;
+    public void setSelected(CheckBox selected) {
+        this.selected = selected;
     }
 
     public String toString(){
-        return "Номер комнаты: "+getNumberRoom()+"\nСтатус: "+getStatus()+"\nСписок оборудования: "+getEquipments().toString();
+        return "Номер комнаты: "+getNumberRoom()+"\nСписок оборудования: "+getEquipments().toString();
     }
     /*public void print(){
         System.out.print("Статус: ");

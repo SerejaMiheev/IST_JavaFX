@@ -10,10 +10,12 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.CheckBoxTableCell;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Floor;
 import models.Room;
@@ -35,7 +37,7 @@ public class AddFloorController {
     TableColumn<Room,Number> numRoom;
 
     @FXML
-    TableColumn<Room, Boolean> addRoom;
+    TableColumn<Room, CheckBox> addRoom;
 
     private Floor floor;
     private RoomGateway roomGateway = GWRegistry.getInstance().getRoomGateway();
@@ -62,30 +64,24 @@ public class AddFloorController {
 
         roomTableView.setItems(rooms);
         numRoom.setCellValueFactory(item -> item.getValue().numberRoomProperty());
-        addRoom.setCellFactory(
-                CheckBoxTableCell.forTableColumn(addRoom)
+        addRoom.setCellValueFactory(
+                //TODO Переделать
+                new PropertyValueFactory<>("selected")
         );
-        BooleanProperty chck = new SimpleBooleanProperty();
-        if (floor != null) {
-            addRoom.setCellValueFactory(cellDate -> {
-                chck.set(floor.getRoomonfloor().contains(cellDate.getValue()));
-                return chck;
-            });
-        }
     }
 
     public void addFloor() throws EntityNotFound {
         if (this.numFloor.getText() != null) {
             String num = this.numFloor.getText();
-            /*ArrayList<Room> roomList = new ArrayList<>();
+            ObservableList<Room> roomList = FXCollections.observableArrayList();
             for(Room current : rooms)
             {
-             if(current.getSelect().isSelected()){
-                 roomList.add(current);
-             }
-         }*/
+                if(current.getSelected().isSelected()){
+                    roomList.add(current);
+                }
+            }
             this.floor.setNumber(num);
-            //this.floor.setRooms(roomList);
+            this.floor.setRoomonfloor(roomList);
 
             if (this.floor.isSaved()) {
                 this.floorGateway.update(this.floor);
