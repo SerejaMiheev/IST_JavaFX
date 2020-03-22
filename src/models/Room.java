@@ -60,7 +60,12 @@ public class Room extends EntityClass {
     }
 
     public String toString(){
-        return "Номер комнаты: "+getNumberRoom()+"\nСписок оборудования: "+getEquipments().toString();
+        if (getEquipments().size() > 0){
+            return "Номер комнаты: "+getNumberRoom()+"\nСписок оборудования: "+getEquipments().toString();
+        }
+        else {
+            return "Номер комнаты: "+getNumberRoom();
+        }
     }
     /*public void print(){
         System.out.print("Статус: ");

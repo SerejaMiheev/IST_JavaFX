@@ -34,7 +34,7 @@
          <VBox.margin>
             <Insets left="30.0" />
          </VBox.margin></Button>
-      <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="92.0" text="Человек">
+      <Button mnemonicParsing="false" onAction="#ClickPerson" prefHeight="33.0" prefWidth="92.0" text="Человек">
          <VBox.margin>
             <Insets left="30.0" />
          </VBox.margin></Button>

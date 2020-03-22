@@ -3,8 +3,6 @@ package controllers;
 import exceptions.EntityNotFound;
 import gw.FloorGateway;
 import gw.RoomGateway;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -14,17 +12,12 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.CheckBoxTableCell;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import models.Floor;
 import models.Room;
 import registry.GWRegistry;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static gw.FloorGateway.*;
 
 public class AddFloorController {
     @FXML
@@ -47,6 +40,19 @@ public class AddFloorController {
     public void  setFloor(Floor floor){
         this.floor = floor;
         this.numFloor.setText(floor.getNumber());
+        ObservableList roomObservableList = FXCollections.observableArrayList(floor.getRoomonfloor());
+        for(Room current : rooms)
+        {
+            CheckBox checkBox = new CheckBox();
+            if(roomObservableList.contains(current)){
+                checkBox.setSelected(true);
+                current.setSelected(checkBox);
+            }
+            else {
+                checkBox.setSelected(false);
+                current.setSelected(checkBox);
+            }
+        }
     }
 
     @FXML

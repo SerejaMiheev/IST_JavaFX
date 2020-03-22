@@ -4,7 +4,6 @@ import gw.FloorGateway;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import main.Main;
@@ -59,5 +58,10 @@ public class FloorController {
         }
     }
 
-    public void View(){}
+    public void View() throws IOException {
+        Floor floor = this.floorTable.getSelectionModel().getSelectedItem();
+        if (floor != null) {
+            this.app.OpenFloorDetView(floor);
+        }
+    }
 }

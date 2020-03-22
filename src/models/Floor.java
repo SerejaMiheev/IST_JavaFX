@@ -22,25 +22,6 @@ public class Floor extends EntityClass {
         countRoom.set(this.roomonfloor.size());
     }
 
-    public StringProperty numberProperty() {
-        return number;
-    }
-
-    public int getCountRoom() {
-        countRoom.set(this.roomonfloor.size());
-        return countRoom.get();
-    }
-
-    public IntegerProperty countRoomProperty() {
-        countRoom.set(this.roomonfloor.size());
-        return countRoom;
-    }
-
-    public void setRoomonfloor(ObservableList<Room> roomonfloor) {
-        this.roomonfloor = roomonfloor;
-        countRoom.set(this.roomonfloor.size());
-    }
-
     public Floor(List roomonfloor){
         this.roomonfloor.setAll(roomonfloor);
         countRoom.set(this.roomonfloor.size());
@@ -48,6 +29,11 @@ public class Floor extends EntityClass {
 
     public Floor(Room roomonfloor){
         this.roomonfloor.add(roomonfloor);
+        countRoom.set(this.roomonfloor.size());
+    }
+
+    public void setRoomonfloor(ObservableList<Room> roomonfloor) {
+        this.roomonfloor = roomonfloor;
         countRoom.set(this.roomonfloor.size());
     }
 
@@ -63,6 +49,24 @@ public class Floor extends EntityClass {
     public void addRoom(Room roomonfloor){
         this.roomonfloor.add(roomonfloor);
         countRoom.set(this.roomonfloor.size());
+    }
+
+    public StringProperty numberProperty() {
+        return number;
+    }
+
+    public int getCountRoom() {
+        countRoom.set(this.roomonfloor.size());
+        return countRoom.get();
+    }
+
+    public IntegerProperty countRoomProperty() {
+        countRoom.set(this.roomonfloor.size());
+        return countRoom;
+    }
+
+    public ObservableList<Room> getRooms(){
+        return roomonfloor;
     }
 
     public List getRoomonfloor(){

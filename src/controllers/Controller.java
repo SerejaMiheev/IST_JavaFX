@@ -19,4 +19,8 @@ public class Controller {
     public void ClickFloor() throws IOException {
         this.app.OpenFloorView();
     }
+
+    public void ClickPerson() throws IOException {
+        this.app.OpenPersonView();
+    }
 }

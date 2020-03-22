@@ -5,7 +5,7 @@ import javafx.beans.property.*;
 public class Person extends EntityClass {
     private StringProperty fio = new SimpleStringProperty();
     private IntegerProperty id = new SimpleIntegerProperty();
-    private ObjectProperty<Room> room = new SimpleObjectProperty<>();
+    private IntegerProperty numRoom = new SimpleIntegerProperty();
 
     public Person(){
         fio.set("Unknown");
@@ -17,26 +17,26 @@ public class Person extends EntityClass {
         this.id.set(id);
     }
 
-    public Person(String fio, int id, Room room){
+    public Person(String fio, int id, int numRoom){
         this.fio.set(fio);
         this.id.set(id);
-        this.room.set(room);
+        this.numRoom.set(numRoom);
     }
 
     public void setFio(String fio) {
         this.fio.set(fio);
     }
 
-    public Room getRoom() {
-        return room.get();
+    public int getRoom() {
+        return numRoom.get();
     }
 
-    public ObjectProperty<Room> roomProperty() {
-        return room;
+    public IntegerProperty roomProperty() {
+        return numRoom;
     }
 
-    public void setRoom(Room room) {
-        this.room.set(room);
+    public void setRoom(int numRoom) {
+        this.numRoom.set(numRoom);
     }
 
     public StringProperty fioProperty() {
@@ -60,7 +60,7 @@ public class Person extends EntityClass {
     }
 
     public String toString(){
-        return "ФИО: "+getFio()+"\nID: "+getId() + "\nКомната: "+ getRoom().toString();
+        return "ФИО: "+getFio()+"\nID: "+getId() + "\nКомната: "+ getRoom();
     }
 
     /*public void print(){

@@ -1,14 +1,13 @@
 package main;
 
-import controllers.AddFloorController;
-import controllers.Controller;
-import controllers.FloorController;
+import controllers.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.Floor;
+import models.Person;
 
 import java.io.IOException;
 
@@ -70,6 +69,48 @@ public class Main extends Application {
         AddFloorController addFloorController = loader.getController();
         addFloorController.setFloor(floor);
         addfloor.show();
+    }
+
+    public void OpenFloorDetView(Floor floor) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/floor_det_view.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage detfloor = new Stage();
+        detfloor.setScene(new Scene(root));
+        detfloor.setTitle("Просмотр этажа");
+        detfloor.setResizable(false);
+        DetFloorController detFloorController = loader.getController();
+        detFloorController.setFloor(floor);
+        detfloor.show();
+    }
+
+    public void OpenPersonView() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/person_view.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage viewPerson = new Stage();
+        viewPerson.setScene(new Scene(root));
+        viewPerson.setTitle("Люди");
+        viewPerson.setResizable(false);
+        PersonController personController = loader.getController();
+        personController.setApp(this);
+        viewPerson.show();
+    }
+
+    public void OpenPersonAdd(Person person) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/person_view.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage viewAddPerson = new Stage();
+        viewAddPerson.setScene(new Scene(root));
+        viewAddPerson.setTitle("Добавить человека");
+        viewAddPerson.setResizable(false);
+        AddPersonController addPersonController = loader.getController();
+        addPersonController.setPerson(person);
+        viewAddPerson.show();
     }
 
     public static void main(String[] args) {
