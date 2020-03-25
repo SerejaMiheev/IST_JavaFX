@@ -71,7 +71,6 @@ public class AddFloorController {
         roomTableView.setItems(rooms);
         numRoom.setCellValueFactory(item -> item.getValue().numberRoomProperty());
         addRoom.setCellValueFactory(
-                //TODO Переделать
                 new PropertyValueFactory<>("selected")
         );
     }

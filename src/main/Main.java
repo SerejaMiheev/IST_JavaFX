@@ -40,7 +40,7 @@ public class Main extends Application {
         viewfloor.setResizable(false);
         FloorController floorController = loader.getController();
         floorController.setApp(this);
-        viewfloor.show();
+        viewfloor.showAndWait();
     }
 
     public void OpenFloorAdd(Floor floor) throws IOException {
@@ -54,7 +54,7 @@ public class Main extends Application {
         addfloor.setResizable(false);
         AddFloorController addFloorController = loader.getController();
         addFloorController.setFloor(floor);
-        addfloor.show();
+        addfloor.showAndWait();
     }
 
     public void OpenFloorEdit(Floor floor) throws IOException {
@@ -68,7 +68,7 @@ public class Main extends Application {
         addfloor.setResizable(false);
         AddFloorController addFloorController = loader.getController();
         addFloorController.setFloor(floor);
-        addfloor.show();
+        addfloor.showAndWait();
     }
 
     public void OpenFloorDetView(Floor floor) throws IOException {
@@ -96,12 +96,12 @@ public class Main extends Application {
         viewPerson.setResizable(false);
         PersonController personController = loader.getController();
         personController.setApp(this);
-        viewPerson.show();
+        viewPerson.showAndWait();
     }
 
     public void OpenPersonAdd(Person person) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(this.getClass().getResource("../views/person_view.fxml"));
+        loader.setLocation(this.getClass().getResource("../views/person_add_view.fxml"));
 
         VBox root = (VBox)loader.load();
         Stage viewAddPerson = new Stage();
@@ -110,7 +110,21 @@ public class Main extends Application {
         viewAddPerson.setResizable(false);
         AddPersonController addPersonController = loader.getController();
         addPersonController.setPerson(person);
-        viewAddPerson.show();
+        viewAddPerson.showAndWait();
+    }
+
+    public void OpenPersonEdit(Person person) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/person_add_view.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage viewAddPerson = new Stage();
+        viewAddPerson.setScene(new Scene(root));
+        viewAddPerson.setTitle("Редактирование человека");
+        viewAddPerson.setResizable(false);
+        AddPersonController addPersonController = loader.getController();
+        addPersonController.setPerson(person);
+        viewAddPerson.showAndWait();
     }
 
     public static void main(String[] args) {

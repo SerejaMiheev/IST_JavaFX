@@ -22,7 +22,7 @@ public class FloorController {
     TableColumn<Floor,Number> countFloor;
 
     private FloorGateway floorGateway = GWRegistry.getInstance().getFloorGateway();
-    ObservableList<Floor> floors = FXCollections.observableArrayList(floorGateway.all());
+    private ObservableList<Floor> floors = FXCollections.observableArrayList(floorGateway.all());
     private Main app;
 
     @FXML
@@ -40,7 +40,6 @@ public class FloorController {
         Floor floor = new Floor();
         this.app.OpenFloorAdd(floor);
         this.floors.add(floor);
-        //TODO Пустой item, при нажатии отмены
     }
 
     public void Del(){

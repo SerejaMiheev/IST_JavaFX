@@ -47,10 +47,10 @@ public class PersonController {
         this.persons.add(person);
     }
 
-    public void edit(){
+    public void edit() throws IOException {
         Person person = this.personTable.getSelectionModel().getSelectedItem();
         if(person != null){
-            //TODO this.app.OpenPersonEdit(person);
+            this.app.OpenPersonEdit(person);
         }
     }
 
