@@ -7,24 +7,19 @@ import models.Equipment;
 
 import java.util.List;
 
-public class Room extends EntityClass {
-    private IntegerProperty NumberRoom = new SimpleIntegerProperty();
+public class Room extends Section {
     private ObservableList<Equipment> equipments = new SimpleListProperty<>();
     private CheckBox selected = new CheckBox();
 
     public Room(){}
 
-    public Room(int NumberRoom){
-        this.NumberRoom.set(NumberRoom);
+    public Room(int number){
+        this.number.set(number);
     }
 
-    public Room(List equipments, int NumberRoom){
+    public Room(List equipments, int number){
         this.equipments.setAll(equipments);
-        this.NumberRoom.set(NumberRoom);
-    }
-
-    public void setNumberRoom(int numberRoom) {
-        NumberRoom.set(numberRoom);
+        this.number.set(number);
     }
 
     public void setEquipments(List equipments) {
@@ -35,16 +30,8 @@ public class Room extends EntityClass {
         this.equipments.add(equipments);
     }
 
-    public int getNumberRoom() {
-        return NumberRoom.get();
-    }
-
     public List getEquipments() {
         return equipments;
-    }
-
-    public IntegerProperty numberRoomProperty() {
-        return NumberRoom;
     }
 
     public void setEquipments(ObservableList<Equipment> equipments) {
@@ -61,10 +48,10 @@ public class Room extends EntityClass {
 
     public String toString(){
         if (getEquipments().size() > 0){
-            return "Номер комнаты: "+getNumberRoom()+"\nСписок оборудования: "+getEquipments().toString();
+            return "Номер комнаты: "+getNumber()+"\nСписок оборудования: "+getEquipments().toString();
         }
         else {
-            return "Номер комнаты: "+getNumberRoom();
+            return "Номер комнаты: "+getNumber();
         }
     }
     /*public void print(){

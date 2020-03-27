@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.Equipment;
 import models.Floor;
 import models.Person;
 
@@ -43,32 +44,22 @@ public class Main extends Application {
         viewfloor.showAndWait();
     }
 
-    public void OpenFloorAdd(Floor floor) throws IOException {
+    public boolean OpenFloorAdd(Floor floor) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/floor_add_view.fxml"));
 
         VBox root = (VBox)loader.load();
         Stage addfloor = new Stage();
         addfloor.setScene(new Scene(root));
-        addfloor.setTitle("Добавить этаж");
+        addfloor.setTitle("Этаж");
         addfloor.setResizable(false);
         AddFloorController addFloorController = loader.getController();
+        addfloor.setOnCloseRequest(windowEvent -> {
+            addFloorController.setCancel(true);
+        });
         addFloorController.setFloor(floor);
         addfloor.showAndWait();
-    }
-
-    public void OpenFloorEdit(Floor floor) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(this.getClass().getResource("../views/floor_add_view.fxml"));
-
-        VBox root = (VBox)loader.load();
-        Stage addfloor = new Stage();
-        addfloor.setScene(new Scene(root));
-        addfloor.setTitle("Редактирование этажа");
-        addfloor.setResizable(false);
-        AddFloorController addFloorController = loader.getController();
-        addFloorController.setFloor(floor);
-        addfloor.showAndWait();
+        return addFloorController.retCancel();
     }
 
     public void OpenFloorDetView(Floor floor) throws IOException {
@@ -99,32 +90,54 @@ public class Main extends Application {
         viewPerson.showAndWait();
     }
 
-    public void OpenPersonAdd(Person person) throws IOException {
+    public boolean OpenPersonAdd(Person person) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/person_add_view.fxml"));
 
         VBox root = (VBox)loader.load();
         Stage viewAddPerson = new Stage();
         viewAddPerson.setScene(new Scene(root));
-        viewAddPerson.setTitle("Добавить человека");
+        viewAddPerson.setTitle("Человек");
         viewAddPerson.setResizable(false);
         AddPersonController addPersonController = loader.getController();
+        viewAddPerson.setOnCloseRequest(windowEvent -> {
+            addPersonController.setCancel(true);
+        });
         addPersonController.setPerson(person);
         viewAddPerson.showAndWait();
+        return addPersonController.retCancel();
     }
 
-    public void OpenPersonEdit(Person person) throws IOException {
+    public void OpenTOEView() throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(this.getClass().getResource("../views/person_add_view.fxml"));
+        loader.setLocation(this.getClass().getResource("../views/type_equp_view.fxml"));
 
         VBox root = (VBox)loader.load();
-        Stage viewAddPerson = new Stage();
-        viewAddPerson.setScene(new Scene(root));
-        viewAddPerson.setTitle("Редактирование человека");
-        viewAddPerson.setResizable(false);
-        AddPersonController addPersonController = loader.getController();
-        addPersonController.setPerson(person);
-        viewAddPerson.showAndWait();
+        Stage viewTOE = new Stage();
+        viewTOE.setScene(new Scene(root));
+        viewTOE.setTitle("Тип");
+        viewTOE.setResizable(false);
+        TOEController toeController = loader.getController();
+        toeController.setApp(this);
+        viewTOE.showAndWait();
+    }
+
+    public boolean OpenTOEAdd(Equipment.TypeOfEquipments typeOfEquipments) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/type_add_view.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage viewAddType = new Stage();
+        viewAddType.setScene(new Scene(root));
+        viewAddType.setTitle("Тип оборудования");
+        viewAddType.setResizable(false);
+        AddTypeController addTypeController = loader.getController();
+        viewAddType.setOnCloseRequest(windowEvent -> {
+            addTypeController.setCancel(true);
+        });
+        addTypeController.setTypeOfEquipments(typeOfEquipments);
+        viewAddType.showAndWait();
+        return addTypeController.retCancel();
     }
 
     public static void main(String[] args) {

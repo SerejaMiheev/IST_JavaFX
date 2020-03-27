@@ -19,51 +19,37 @@ public class AddPersonController {
     TextField fioText;
 
     @FXML
-    TextField idText;
-
-    @FXML
     ComboBox<Room> numRoom;
 
     private RoomGateway roomGateway = GWRegistry.getInstance().getRoomGateway();
     private PersonGateway personGateway = GWRegistry.getInstance().getPersonGateway();
-    Person person;
+    private Person person;
+    private boolean isCancel;
+
+    public void setCancel(boolean isCancel){
+        this.isCancel = isCancel;
+    }
 
     public void setPerson(Person person){
         this.person = person;
         this.fioText.setText(person.getFio());
-        this.idText.setText(person.idProperty().toString());
-        /*if (person.getRoom() != 0){
-            this.numRoom.setSelectionModel(this.roomGateway.all().contains());
-        }*/
     }
 
     public void initialize(){
         this.numRoom.setItems(FXCollections.observableArrayList(this.roomGateway.all()));
-        idText.textProperty().addListener(new ChangeListener<String>() {
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (newValue.matches("\\d*")) {
-                    int value = Integer.parseInt(newValue);
-                } else {
-                    idText.setText(oldValue);
-                }
-            }
-        });
     }
 
     public void Add() throws EntityNotFound {
-        if ((this.fioText.getText() != null) & (this.idText.getText() != null)) {
+        if ((this.fioText.getText() != null)) {
             String fio = this.fioText.getText();
-            int id = Integer.parseInt(this.idText.getText());
             int num;
             if ((!this.numRoom.getSelectionModel().isEmpty())){
-                num = this.numRoom.getValue().getNumberRoom();
+                num = this.numRoom.getValue().getNumber();
             }
             else{
                 num = 0;
             }
             this.person.setFio(fio);
-            this.person.setId(id);
             this.person.setRoom(num);
 
             if (this.person.isSaved()) {
@@ -71,14 +57,21 @@ public class AddPersonController {
             } else {
                 this.personGateway.insert(this.person);
             }
+            isCancel = false;
 
             Stage stage = (Stage)this.fioText.getScene().getWindow();
             stage.close();
         }
     }
 
+    public boolean retCancel(){
+        return isCancel;
+    }
+
     public void Cancel(){
+        isCancel = true;
         Stage stage = (Stage)this.fioText.getScene().getWindow();
         stage.close();
+
     }
 }

@@ -24,16 +24,12 @@ public class Equipment extends EntityClass {
             return "Тип оборудования: "+typeofequipment;
         }
 
-        public String getTypeofequipment() {
-            return typeofequipment.get();
-        }
-
         public StringProperty typeofequipmentProperty() {
             return typeofequipment;
         }
 
-        public void setTypeofequipment(String typeofequipment) {
-            this.typeofequipment.set(typeofequipment);
+        public void setTypeofequipmentProperty(StringProperty typeofequipment) {
+            this.typeofequipment = typeofequipment;
         }
     }
 

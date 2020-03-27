@@ -12,6 +12,10 @@ public class Person extends EntityClass {
         id.set(0);
     }
 
+    public  Person(String fio){
+        this.fio.set(fio);
+    }
+
     public Person(String fio, int id){
         this.fio.set(fio);
         this.id.set(id);

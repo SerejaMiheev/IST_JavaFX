@@ -27,7 +27,7 @@ public class PersonController {
     TableColumn<Person, Number> roomColumn;
 
     private PersonGateway personGateway = GWRegistry.getInstance().getPersonGateway();
-    ObservableList<Person> persons = FXCollections.observableArrayList(personGateway.all());
+    private ObservableList<Person> persons = FXCollections.observableArrayList(personGateway.all());
     private Main app;
 
     public void initialize(){
@@ -43,14 +43,16 @@ public class PersonController {
 
     public void add() throws IOException {
         Person person = new Person();
-        this.app.OpenPersonAdd(person);
-        this.persons.add(person);
+        if(!this.app.OpenPersonAdd(person)){
+            this.persons.add(person);
+        }
+
     }
 
     public void edit() throws IOException {
         Person person = this.personTable.getSelectionModel().getSelectedItem();
         if(person != null){
-            this.app.OpenPersonEdit(person);
+            this.app.OpenPersonAdd(person);
         }
     }
 

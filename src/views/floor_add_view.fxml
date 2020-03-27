@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddFloorController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="354.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AddFloorController">
    <children>
       <HBox prefHeight="40.0" prefWidth="600.0" spacing="4.0">
          <children>
@@ -29,7 +29,7 @@
             </TextField>
          </children>
       </HBox>
-      <Label text="Комнаты:">
+      <Label prefHeight="24.0" prefWidth="68.0" text="Комнаты:">
          <font>
             <Font size="14.0" />
          </font>
@@ -37,13 +37,30 @@
             <Insets left="7.0" top="5.0" />
          </padding>
       </Label>
-      <TableView fx:id="roomTableView" editable="true" prefHeight="321.0" prefWidth="354.0">
+      <TableView fx:id="roomTableView" editable="true" prefHeight="170.0" prefWidth="354.0">
         <columns>
           <TableColumn fx:id="numRoom" prefWidth="218.0" resizable="false" text="Номер" />
           <TableColumn fx:id="addRoom" prefWidth="133.0" resizable="false" text="Добавить" />
         </columns>
       </TableView>
-      <HBox prefHeight="60.0" prefWidth="354.0" spacing="10.0">
+      <Label text="Камеры:">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
+      </Label>
+      <TableView fx:id="cameraTableView" editable="true" layoutX="10.0" layoutY="75.0" prefHeight="170.0" prefWidth="354.0">
+         <columns>
+            <TableColumn fx:id="numCamera" prefWidth="218.0" resizable="false" text="Номер" />
+            <TableColumn fx:id="addCamera" prefWidth="132.0" resizable="false" text="Добавить" />
+         </columns>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </TableView>
+      <HBox prefHeight="48.0" prefWidth="354.0" spacing="10.0">
          <children>
             <Button mnemonicParsing="false" onAction="#addFloor" text="Добавить">
                <font>

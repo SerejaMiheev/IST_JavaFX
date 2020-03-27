@@ -17,9 +17,11 @@ public class FloorController {
     @FXML
     TableView<Floor> floorTable;
     @FXML
-    TableColumn<Floor,String> floorColumn;
+    TableColumn<Floor,Number> floorColumn;
     @FXML
     TableColumn<Floor,Number> countFloor;
+    @FXML
+    TableColumn<Floor,Number> countCamera;
 
     private FloorGateway floorGateway = GWRegistry.getInstance().getFloorGateway();
     private ObservableList<Floor> floors = FXCollections.observableArrayList(floorGateway.all());
@@ -28,8 +30,9 @@ public class FloorController {
     @FXML
     public void initialize(){
         floorTable.setItems(floors);
-        floorColumn.setCellValueFactory(item -> item.getValue().getNumberProperty());
+        floorColumn.setCellValueFactory(item -> item.getValue().numberProperty());
         countFloor.setCellValueFactory(cellDate -> cellDate.getValue().countRoomProperty());
+        countCamera.setCellValueFactory(cellDate -> cellDate.getValue().count());
     }
 
     public void setApp(Main app){
@@ -38,8 +41,9 @@ public class FloorController {
 
     public void Add() throws IOException {
         Floor floor = new Floor();
-        this.app.OpenFloorAdd(floor);
-        this.floors.add(floor);
+        if(!this.app.OpenFloorAdd(floor)){
+            this.floors.add(floor);
+        }
     }
 
     public void Del(){
@@ -53,7 +57,7 @@ public class FloorController {
     public void Edit() throws IOException {
         Floor floor = this.floorTable.getSelectionModel().getSelectedItem();
         if (floor != null) {
-            this.app.OpenFloorEdit(floor);
+            this.app.OpenFloorAdd(floor);
         }
     }
 

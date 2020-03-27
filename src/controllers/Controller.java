@@ -23,4 +23,8 @@ public class Controller {
     public void ClickPerson() throws IOException {
         this.app.OpenPersonView();
     }
+
+    public void clickType() throws IOException {
+        this.app.OpenTOEView();
+    }
 }

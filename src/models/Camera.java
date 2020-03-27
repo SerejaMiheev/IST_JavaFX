@@ -1,11 +1,13 @@
 package models;
 
 import javafx.beans.property.*;
+import javafx.scene.control.CheckBox;
 
 public class Camera extends EntityClass {
     private IntegerProperty numbercam = new SimpleIntegerProperty();
     private StringProperty locrecord = new SimpleStringProperty();
     private ObjectProperty<Section> section = new SimpleObjectProperty<>();
+    private CheckBox selected = new CheckBox();
 
     public Camera() {
         numbercam.set(0);
@@ -59,11 +61,19 @@ public class Camera extends EntityClass {
         return section;
     }
 
-    @Override
-    public String toString() {
-        return "Номер камеры: " + getNumbercam() + "\nПуть записи: " + getLocrecord() + "\nСекция в которой находится камера: " + getSection().getNumsection();
+    public CheckBox getSelected() {
+        return selected;
     }
 
+    public void setSelected(CheckBox selected) {
+        this.selected = selected;
+    }
+
+    @Override
+    public String toString() {
+        return "Номер камеры: " + getNumbercam() + "\nПуть записи: " + getLocrecord();
+
+}
     /*public void print(){
         System.out.print("Номер камеры: ");
         System.out.println(numbercam);

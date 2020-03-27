@@ -7,7 +7,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="214.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
    <children>
       <Button mnemonicParsing="false" onAction="#ClickGen" prefHeight="33.0" text="Сгенерировать событие" />
-      <Button mnemonicParsing="false" prefHeight="33.0" text="Тип оборудования">
+      <Button mnemonicParsing="false" onAction="#clickType" prefHeight="33.0" text="Тип оборудования">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>

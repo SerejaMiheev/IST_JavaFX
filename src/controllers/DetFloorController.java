@@ -17,7 +17,7 @@ public class DetFloorController {
 
 
     public void setFloor(Floor floor){
-        numberLabel.setText(floor.getNumber());
+        numberLabel.setText(String.valueOf(floor.getNumber()));
         roomListView.setItems(floor.getRooms());
     }
 

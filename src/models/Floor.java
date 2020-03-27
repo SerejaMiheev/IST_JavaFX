@@ -5,40 +5,39 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
-public class Floor extends EntityClass {
-    private StringProperty number = new SimpleStringProperty();
+public class Floor extends Section {
     private ObservableList<Room> roomonfloor = new SimpleListProperty<>();
     private IntegerProperty countRoom = new SimpleIntegerProperty();
 
+
     public Floor(){}
 
-    public Floor(String number){
+    public Floor(int number){
         this.number.set(number);
     }
 
-    public Floor(List roomonfloor, String number){
+    public Floor(List roomonfloor, int number){
         this.roomonfloor.setAll(roomonfloor);
         this.number.set(number);
         countRoom.set(this.roomonfloor.size());
+        countCamera.set(this.cameras.size());
     }
 
     public Floor(List roomonfloor){
         this.roomonfloor.setAll(roomonfloor);
         countRoom.set(this.roomonfloor.size());
+        countCamera.set(this.cameras.size());
     }
 
     public Floor(Room roomonfloor){
         this.roomonfloor.add(roomonfloor);
         countRoom.set(this.roomonfloor.size());
+        countCamera.set(this.cameras.size());
     }
 
     public void setRoomonfloor(ObservableList<Room> roomonfloor) {
         this.roomonfloor = roomonfloor;
         countRoom.set(this.roomonfloor.size());
-    }
-
-    public void setNumber(String number) {
-        this.number.set(number);
     }
 
     public void setRooms(List roomonfloor){
@@ -49,10 +48,6 @@ public class Floor extends EntityClass {
     public void addRoom(Room roomonfloor){
         this.roomonfloor.add(roomonfloor);
         countRoom.set(this.roomonfloor.size());
-    }
-
-    public StringProperty numberProperty() {
-        return number;
     }
 
     public int getCountRoom() {
@@ -73,12 +68,9 @@ public class Floor extends EntityClass {
         return roomonfloor;
     }
 
-    public String getNumber(){
-        return number.get();
-    }
-
-    public StringProperty getNumberProperty() {
-        return number;
+    public IntegerProperty count(){
+        countCamera.set(this.cameras.size());
+        return countCamera;
     }
 
     public String toString(){

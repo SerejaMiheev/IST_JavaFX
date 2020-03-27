@@ -9,8 +9,33 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="474.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TOEController">
    <children>
+      <HBox prefHeight="50.0" prefWidth="474.0" spacing="10.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#addType" prefHeight="30.0" prefWidth="107.0" text="Добавить">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#edit" text="Редактировать">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#delType" text="Удалить">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+         </children>
+         <padding>
+            <Insets left="10.0" top="10.0" />
+         </padding>
+      </HBox>
       <Label text="Типы оборудования:">
          <font>
             <Font size="14.0" />
@@ -19,36 +44,19 @@
             <Insets left="5.0" top="5.0" />
          </VBox.margin>
       </Label>
-      <TableView prefHeight="307.0" prefWidth="423.0">
+      <TableView fx:id="typeTable" prefHeight="307.0" prefWidth="423.0">
         <columns>
-          <TableColumn fx:id="typeColumn" prefWidth="304.0" text="Тип" />
-          <TableColumn fx:id="actionColumn" minWidth="0.0" prefWidth="169.0" text="Действие" />
+          <TableColumn fx:id="typeColumn" prefWidth="332.0" resizable="false" text="Тип" />
         </columns>
       </TableView>
-      <HBox prefHeight="51.0" prefWidth="423.0" spacing="10.0">
+      <HBox alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="474.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#addEquip" text="Добавить оборудование">
+            <Button alignment="TOP_LEFT" mnemonicParsing="false" onAction="#cancel" text="Закрыть">
                <font>
                   <Font size="14.0" />
                </font>
                <HBox.margin>
-                  <Insets left="10.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#viewEquip" text="Просмотр оборудования">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <HBox.margin>
-                  <Insets top="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#delEquip" text="Удалить">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <HBox.margin>
-                  <Insets top="10.0" />
+                  <Insets right="10.0" />
                </HBox.margin>
             </Button>
          </children>
