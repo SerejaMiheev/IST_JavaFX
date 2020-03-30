@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.stage.Stage;
 import main.Main;
 import models.Floor;
 import registry.GWRegistry;
@@ -66,5 +67,10 @@ public class FloorController {
         if (floor != null) {
             this.app.OpenFloorDetView(floor);
         }
+    }
+
+    public void cancel(){
+        Stage stage = (Stage)this.floorTable.getScene().getWindow();
+        stage.close();
     }
 }

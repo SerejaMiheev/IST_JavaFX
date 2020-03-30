@@ -34,6 +34,10 @@ public class Section extends EntityClass {
         return cameras;
     }
 
+    public ObservableList<Camera> getCamerasOList(){
+        return cameras;
+    }
+
     public IntegerProperty numberProperty() {
         return number;
     }

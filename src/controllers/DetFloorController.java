@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import models.Camera;
 import models.Floor;
 import models.Room;
 
@@ -15,10 +16,15 @@ public class DetFloorController {
     @FXML
     ListView<Room> roomListView;
 
+    @FXML
+    ListView<Camera> camerasListView;
+
 
     public void setFloor(Floor floor){
         numberLabel.setText(String.valueOf(floor.getNumber()));
         roomListView.setItems(floor.getRooms());
+        camerasListView.setItems(floor.getCamerasOList());
+
     }
 
     public void Cancel(){

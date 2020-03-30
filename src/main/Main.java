@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import models.Camera;
 import models.Equipment;
 import models.Floor;
 import models.Person;
@@ -138,6 +139,70 @@ public class Main extends Application {
         addTypeController.setTypeOfEquipments(typeOfEquipments);
         viewAddType.showAndWait();
         return addTypeController.retCancel();
+    }
+
+    public void OpenCameraView() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/camera_view.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage viewCamera = new Stage();
+        viewCamera.setScene(new Scene(root));
+        viewCamera.setTitle("Камеры");
+        viewCamera.setResizable(false);
+        CameraController cameraController = loader.getController();
+        cameraController.setApp(this);
+        viewCamera.showAndWait();
+    }
+
+    public boolean OpenCameraAdd(Camera camera) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/camera_add_view.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage viewAddCamera = new Stage();
+        viewAddCamera.setScene(new Scene(root));
+        viewAddCamera.setTitle("Камера");
+        viewAddCamera.setResizable(false);
+        AddCameraController addCameraController = loader.getController();
+        viewAddCamera.setOnCloseRequest(windowEvent -> {
+            addCameraController.setCancel(true);
+        });
+        addCameraController.setCamera(camera);
+        viewAddCamera.showAndWait();
+        return addCameraController.retCancel();
+    }
+
+    public void OpenEquipmentView() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/equipment_view.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage viewEquipment = new Stage();
+        viewEquipment.setScene(new Scene(root));
+        viewEquipment.setTitle("Оборудование");
+        viewEquipment.setResizable(false);
+        EquipmentController equipmentController = loader.getController();
+        equipmentController.setApp(this);
+        viewEquipment.showAndWait();
+    }
+
+    public boolean OpenEquipmentAdd(Equipment equipment) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/add_equip.fxml"));
+
+        VBox root = (VBox)loader.load();
+        Stage viewAddEquip = new Stage();
+        viewAddEquip.setScene(new Scene(root));
+        viewAddEquip.setTitle("Оборудование");
+        viewAddEquip.setResizable(false);
+        AddEquipmentController addEquipmentController = loader.getController();
+        viewAddEquip.setOnCloseRequest(windowEvent -> {
+            addEquipmentController.setCancel(true);
+        });
+        addEquipmentController.setEquipment(equipment);
+        viewAddEquip.showAndWait();
+        return addEquipmentController.retCancel();
     }
 
     public static void main(String[] args) {

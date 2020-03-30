@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="371.0" prefWidth="214.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="214.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
    <children>
       <Button mnemonicParsing="false" onAction="#ClickGen" prefHeight="33.0" text="Сгенерировать событие" />
       <Button mnemonicParsing="false" onAction="#clickType" prefHeight="33.0" text="Тип оборудования">
@@ -14,7 +14,7 @@
          <VBox.margin>
             <Insets left="15.0" />
          </VBox.margin></Button>
-      <Button mnemonicParsing="false" prefHeight="33.0" text="Оборудование">
+      <Button mnemonicParsing="false" onAction="#clickEquipment" prefHeight="33.0" text="Оборудование">
          <VBox.margin>
             <Insets left="26.0" />
          </VBox.margin></Button>
@@ -26,11 +26,7 @@
          <VBox.margin>
             <Insets left="30.0" />
          </VBox.margin></Button>
-      <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="92.0" text="Секция">
-         <VBox.margin>
-            <Insets left="30.0" />
-         </VBox.margin></Button>
-      <Button mnemonicParsing="false" prefHeight="33.0" prefWidth="92.0" text="Камера">
+      <Button mnemonicParsing="false" onAction="#clickCamera" prefHeight="33.0" prefWidth="92.0" text="Камера">
          <VBox.margin>
             <Insets left="30.0" />
          </VBox.margin></Button>

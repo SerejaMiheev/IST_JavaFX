@@ -27,4 +27,12 @@ public class Controller {
     public void clickType() throws IOException {
         this.app.OpenTOEView();
     }
+
+    public void clickCamera() throws IOException {
+        this.app.OpenCameraView();
+    }
+
+    public void clickEquipment() throws IOException {
+        this.app.OpenEquipmentView();
+    }
 }
