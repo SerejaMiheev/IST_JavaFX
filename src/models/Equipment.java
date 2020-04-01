@@ -1,9 +1,11 @@
 package models;
 
 import javafx.beans.property.*;
+import javafx.scene.control.CheckBox;
 
 public class Equipment extends EntityClass {
     private IntegerProperty count = new SimpleIntegerProperty();
+    private CheckBox selected = new CheckBox();
 
     static public class TypeOfEquipments extends EntityClass {
         private StringProperty typeofequipment = new SimpleStringProperty();
@@ -21,7 +23,7 @@ public class Equipment extends EntityClass {
         }
 
         public String toString() {
-            return "Тип оборудования: "+typeofequipment;
+            return typeofequipment.get();
         }
 
         public StringProperty typeofequipmentProperty() {
@@ -35,7 +37,10 @@ public class Equipment extends EntityClass {
 
     private ObjectProperty<TypeOfEquipments> type = new SimpleObjectProperty<>();
 
-    public Equipment(){}
+    public Equipment(){
+        this.count.set(0);
+        this.type.set(new TypeOfEquipments(""));
+    }
 
     public Equipment(TypeOfEquipments type, int count){
         this.type.set(type);
@@ -66,8 +71,20 @@ public class Equipment extends EntityClass {
         return count.get();
     }
 
+    public CheckBox getSelected() {
+        return selected;
+    }
+
+    public void setSelected(CheckBox selected) {
+        this.selected = selected;
+    }
+
     public String toString(){
-        return "Кол-во оборудования: "+getCountOfEquipment()+"\n"+getTypeOfEquipment().toString();
+        return getTypeOfEquipment().toString()+", кол-во: "+getCountOfEquipment();
+    }
+
+    public StringProperty typeStringProperty(){
+        return new SimpleStringProperty(toString());
     }
 
     /*public void print(){

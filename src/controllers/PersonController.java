@@ -30,20 +30,20 @@ public class PersonController {
     private ObservableList<Person> persons = FXCollections.observableArrayList(personGateway.all());
     private Main app;
 
-    public void initialize(){
+    public void initialize() {
         personTable.setItems(persons);
         idColumn.setCellValueFactory(item -> item.getValue().idProperty());
         fioColumn.setCellValueFactory(item -> item.getValue().fioProperty());
-        roomColumn.setCellValueFactory(item -> item.getValue().roomProperty());
+        roomColumn.setCellValueFactory(item -> item.getValue().roomProperty().get().numberProperty());
     }
 
-    public void setApp(Main app){
+    public void setApp(Main app) {
         this.app = app;
     }
 
     public void add() throws IOException {
         Person person = new Person();
-        if(!this.app.OpenPersonAdd(person)){
+        if (!this.app.OpenPersonAdd(person)) {
             this.persons.add(person);
         }
 
@@ -51,20 +51,20 @@ public class PersonController {
 
     public void edit() throws IOException {
         Person person = this.personTable.getSelectionModel().getSelectedItem();
-        if(person != null){
+        if (person != null) {
             this.app.OpenPersonAdd(person);
         }
     }
 
-    public void del(){
+    public void del() {
         Person person = this.personTable.getSelectionModel().getSelectedItem();
-        if (person != null){
+        if (person != null) {
             this.personGateway.delete(person.getId());
             this.persons.remove(person);
         }
     }
 
-    public void cancel(){
+    public void cancel() {
         Stage stage = (Stage) personTable.getScene().getWindow();
         stage.close();
     }

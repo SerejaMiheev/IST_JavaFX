@@ -16,13 +16,13 @@ public class AddTypeController {
     private boolean isCancel;
     private TypeGateway typeGateway = GWRegistry.getInstance().getTypeGateway();
 
-    public void setTypeOfEquipments(Equipment.TypeOfEquipments typeOfEquipments){
+    public void setTypeOfEquipments(Equipment.TypeOfEquipments typeOfEquipments) {
         this.typeOfEquipments = typeOfEquipments;
         this.nameType.setText(typeOfEquipments.getTypeOfEquipment());
     }
 
     public void addType() throws EntityNotFound {
-        if (this.nameType.getText() != null){
+        if (this.nameType.getText() != null) {
             String name = this.nameType.getText();
 
             this.typeOfEquipments.setTypeOfEquipment(name);
@@ -34,22 +34,22 @@ public class AddTypeController {
             }
             isCancel = false;
 
-            Stage stage = (Stage)this.nameType.getScene().getWindow();
+            Stage stage = (Stage) this.nameType.getScene().getWindow();
             stage.close();
         }
     }
 
-    public void setCancel(boolean isCancel){
+    public void setCancel(boolean isCancel) {
         this.isCancel = isCancel;
     }
 
-    public boolean retCancel(){
+    public boolean retCancel() {
         return isCancel;
     }
 
-    public void cancel(){
+    public void cancel() {
         isCancel = true;
-        Stage stage = (Stage)this.nameType.getScene().getWindow();
+        Stage stage = (Stage) this.nameType.getScene().getWindow();
         stage.close();
     }
 }

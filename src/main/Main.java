@@ -6,17 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import models.Camera;
-import models.Equipment;
-import models.Floor;
-import models.Person;
+import models.*;
 
 import java.io.IOException;
 
 public class Main extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         //Parent root = FXMLLoader.load(getClass().getResource("../views/sample.fxml"));
         //primaryStage.setTitle("PACS");
 
@@ -35,7 +32,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/floor_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage viewfloor = new Stage();
         viewfloor.setScene(new Scene(root));
         viewfloor.setTitle("Этажи");
@@ -49,7 +46,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/floor_add_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage addfloor = new Stage();
         addfloor.setScene(new Scene(root));
         addfloor.setTitle("Этаж");
@@ -67,7 +64,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/floor_det_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage detfloor = new Stage();
         detfloor.setScene(new Scene(root));
         detfloor.setTitle("Просмотр этажа");
@@ -81,7 +78,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/person_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage viewPerson = new Stage();
         viewPerson.setScene(new Scene(root));
         viewPerson.setTitle("Люди");
@@ -95,7 +92,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/person_add_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage viewAddPerson = new Stage();
         viewAddPerson.setScene(new Scene(root));
         viewAddPerson.setTitle("Человек");
@@ -113,7 +110,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/type_equp_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage viewTOE = new Stage();
         viewTOE.setScene(new Scene(root));
         viewTOE.setTitle("Тип");
@@ -127,7 +124,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/type_add_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage viewAddType = new Stage();
         viewAddType.setScene(new Scene(root));
         viewAddType.setTitle("Тип оборудования");
@@ -145,7 +142,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/camera_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage viewCamera = new Stage();
         viewCamera.setScene(new Scene(root));
         viewCamera.setTitle("Камеры");
@@ -159,7 +156,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/camera_add_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage viewAddCamera = new Stage();
         viewAddCamera.setScene(new Scene(root));
         viewAddCamera.setTitle("Камера");
@@ -177,7 +174,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/equipment_view.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage viewEquipment = new Stage();
         viewEquipment.setScene(new Scene(root));
         viewEquipment.setTitle("Оборудование");
@@ -191,7 +188,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(this.getClass().getResource("../views/add_equip.fxml"));
 
-        VBox root = (VBox)loader.load();
+        VBox root = (VBox) loader.load();
         Stage viewAddEquip = new Stage();
         viewAddEquip.setScene(new Scene(root));
         viewAddEquip.setTitle("Оборудование");
@@ -203,6 +200,70 @@ public class Main extends Application {
         addEquipmentController.setEquipment(equipment);
         viewAddEquip.showAndWait();
         return addEquipmentController.retCancel();
+    }
+
+    public void OpenRoomView() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/room_view.fxml"));
+
+        VBox root = (VBox) loader.load();
+        Stage viewRoom = new Stage();
+        viewRoom.setScene(new Scene(root));
+        viewRoom.setTitle("Комнаты");
+        viewRoom.setResizable(false);
+        RoomController roomController = loader.getController();
+        roomController.setApp(this);
+        viewRoom.showAndWait();
+    }
+
+    public boolean OpenRoomAdd(Room room) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/room_add_view.fxml"));
+
+        VBox root = (VBox) loader.load();
+        Stage addRoom = new Stage();
+        addRoom.setScene(new Scene(root));
+        addRoom.setTitle("Комната");
+        addRoom.setResizable(false);
+        AddRoomController addRoomController = loader.getController();
+        addRoom.setOnCloseRequest(windowEvent -> {
+            addRoomController.setCancel(true);
+        });
+        addRoomController.setRoom(room);
+        addRoom.showAndWait();
+        return addRoomController.retCancel();
+    }
+
+    public void OpenEventView() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/event_view.fxml"));
+
+        VBox root = (VBox) loader.load();
+        Stage viewEvent = new Stage();
+        viewEvent.setScene(new Scene(root));
+        viewEvent.setTitle("События");
+        viewEvent.setResizable(false);
+        EventController eventController = loader.getController();
+        eventController.setApp(this);
+        viewEvent.showAndWait();
+    }
+
+    public boolean OpenEventAdd(Event event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(this.getClass().getResource("../views/event_add_view.fxml"));
+
+        VBox root = (VBox) loader.load();
+        Stage addEvent = new Stage();
+        addEvent.setScene(new Scene(root));
+        addEvent.setTitle("Событие");
+        addEvent.setResizable(false);
+        AddEventController addEventController = loader.getController();
+        addEvent.setOnCloseRequest(windowEvent -> {
+            addEventController.setCancel(true);
+        });
+        addEventController.setEvent(event);
+        addEvent.showAndWait();
+        return addEventController.retCancel();
     }
 
     public static void main(String[] args) {

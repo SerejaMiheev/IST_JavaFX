@@ -4,67 +4,51 @@ import javafx.beans.property.*;
 
 public class Person extends EntityClass {
     private StringProperty fio = new SimpleStringProperty();
-    private IntegerProperty id = new SimpleIntegerProperty();
-    private IntegerProperty numRoom = new SimpleIntegerProperty();
+    private ObjectProperty<Room> room = new SimpleObjectProperty<>();
 
     public Person(){
-        fio.set("Unknown");
-        id.set(0);
+        fio.set("");
+        room.set(new Room());
     }
 
     public  Person(String fio){
         this.fio.set(fio);
+        room.set(new Room());
     }
 
-    public Person(String fio, int id){
-        this.fio.set(fio);
-        this.id.set(id);
-    }
 
-    public Person(String fio, int id, int numRoom){
+    public Person(String fio, Room room){
         this.fio.set(fio);
-        this.id.set(id);
-        this.numRoom.set(numRoom);
+        this.room.set(room);
     }
 
     public void setFio(String fio) {
         this.fio.set(fio);
     }
 
-    public int getRoom() {
-        return numRoom.get();
+    public Room getRoom() {
+        return room.get();
     }
 
-    public IntegerProperty roomProperty() {
-        return numRoom;
+    public ObjectProperty<Room> roomProperty() {
+        return room;
     }
 
-    public void setRoom(int numRoom) {
-        this.numRoom.set(numRoom);
+    public void setRoom(Room room) {
+        this.room.set(room);
     }
 
     public StringProperty fioProperty() {
         return fio;
     }
 
-    public IntegerProperty idProperty() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id.set(id);
-    }
-
-    public int getId() {
-        return id.get();
-    }
 
     public String getFio() {
         return fio.get();
     }
 
     public String toString(){
-        return "ФИО: "+getFio()+"\nID: "+getId() + "\nКомната: "+ getRoom();
+        return "ФИО: "+getFio()+"\nКомната: "+ getRoom();
     }
 
     /*public void print(){

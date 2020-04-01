@@ -8,11 +8,7 @@ public class Controller {
 
     private Main app;
 
-    public void ClickGen(){
-
-    }
-
-    public void setApp(Main app){
+    public void setApp(Main app) {
         this.app = app;
     }
 
@@ -34,5 +30,13 @@ public class Controller {
 
     public void clickEquipment() throws IOException {
         this.app.OpenEquipmentView();
+    }
+
+    public void clickRoom() throws IOException {
+        this.app.OpenRoomView();
+    }
+
+    public void clickEvent() throws IOException {
+        this.app.OpenEventView();
     }
 }

@@ -3,9 +3,8 @@ package controllers;
 import exceptions.EntityNotFound;
 import gw.PersonGateway;
 import gw.RoomGateway;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -23,6 +22,7 @@ public class AddPersonController {
 
     private RoomGateway roomGateway = GWRegistry.getInstance().getRoomGateway();
     private PersonGateway personGateway = GWRegistry.getInstance().getPersonGateway();
+    private ObservableList<Room> rooms = FXCollections.observableArrayList(roomGateway.all());
     private Person person;
     private boolean isCancel;
 
@@ -33,30 +33,32 @@ public class AddPersonController {
     public void setPerson(Person person){
         this.person = person;
         this.fioText.setText(person.getFio());
+        if (this.person.getRoom().getNumber() != 0){
+            this.numRoom.setValue(person.getRoom());
+        }
     }
 
     public void initialize(){
-        this.numRoom.setItems(FXCollections.observableArrayList(this.roomGateway.all()));
+        this.numRoom.setItems(rooms);
     }
 
     public void Add() throws EntityNotFound {
-        if ((this.fioText.getText() != null)) {
+        if ((!this.fioText.getText().isBlank())) {
             String fio = this.fioText.getText();
-            int num;
+            Room room = new Room();
             if ((!this.numRoom.getSelectionModel().isEmpty())){
-                num = this.numRoom.getValue().getNumber();
+                room = this.numRoom.getValue();
             }
-            else{
-                num = 0;
-            }
+
             this.person.setFio(fio);
-            this.person.setRoom(num);
+            this.person.setRoom(room);
 
             if (this.person.isSaved()) {
                 this.personGateway.update(this.person);
             } else {
                 this.personGateway.insert(this.person);
             }
+            boolean t = this.person.isSaved();
             isCancel = false;
 
             Stage stage = (Stage)this.fioText.getScene().getWindow();

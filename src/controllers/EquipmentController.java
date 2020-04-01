@@ -27,11 +27,11 @@ public class EquipmentController {
     private ObservableList<Equipment> equipments = FXCollections.observableArrayList(equipmentGateway.all());
     private Main app;
 
-    public void setApp(Main app){
+    public void setApp(Main app) {
         this.app = app;
     }
 
-    public void initialize(){
+    public void initialize() {
         equipTable.setItems(equipments);
         typeColumn.setCellValueFactory(item -> item.getValue().getTypeOfEquipment().typeofequipmentProperty());
         countColumn.setCellValueFactory(item -> item.getValue().countProperty());
@@ -39,28 +39,28 @@ public class EquipmentController {
 
     public void add() throws IOException {
         Equipment equipment = new Equipment();
-        if(!this.app.OpenEquipmentAdd(equipment)){
+        if (!this.app.OpenEquipmentAdd(equipment)) {
             this.equipments.add(equipment);
         }
     }
 
     public void edit() throws IOException {
         Equipment equipment = this.equipTable.getSelectionModel().getSelectedItem();
-        if(equipment != null){
+        if (equipment != null) {
             this.app.OpenEquipmentAdd(equipment);
         }
     }
 
-    public void del(){
+    public void del() {
         Equipment equipment = this.equipTable.getSelectionModel().getSelectedItem();
-        if(equipment != null){
+        if (equipment != null) {
             this.equipmentGateway.delete(equipment.getId());
             this.equipments.remove(equipment);
         }
     }
 
-    public void cancel(){
-        Stage stage = (Stage)equipTable.getScene().getWindow();
+    public void cancel() {
+        Stage stage = (Stage) equipTable.getScene().getWindow();
         stage.close();
     }
 }

@@ -27,40 +27,40 @@ public class CameraController {
     private ObservableList<Camera> cameras = FXCollections.observableArrayList(cameraGateway.all());
     private Main app;
 
-    public void initialize(){
+    public void initialize() {
         cameraTable.setItems(cameras);
         numberColumn.setCellValueFactory(item -> item.getValue().numbercamProperty());
         locColumn.setCellValueFactory(item -> item.getValue().locrecordProperty());
     }
 
-    public void  setApp(Main app){
+    public void setApp(Main app) {
         this.app = app;
     }
 
     public void add() throws IOException {
         Camera camera = new Camera();
-        if(!this.app.OpenCameraAdd(camera)){
+        if (!this.app.OpenCameraAdd(camera)) {
             this.cameras.add(camera);
         }
     }
 
     public void edit() throws IOException {
         Camera camera = this.cameraTable.getSelectionModel().getSelectedItem();
-        if(camera != null){
+        if (camera != null) {
             this.app.OpenCameraAdd(camera);
         }
     }
 
-    public void del(){
+    public void del() {
         Camera camera = this.cameraTable.getSelectionModel().getSelectedItem();
-        if(camera != null){
+        if (camera != null) {
             this.cameraGateway.delete(camera.getId());
             this.cameras.remove(camera);
         }
     }
 
-    public void cancel(){
-        Stage stage = (Stage)cameraTable.getScene().getWindow();
+    public void cancel() {
+        Stage stage = (Stage) cameraTable.getScene().getWindow();
         stage.close();
     }
 }

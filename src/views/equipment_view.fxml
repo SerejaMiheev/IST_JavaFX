@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="357.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EquipmentController">
    <children>
       <HBox prefHeight="46.0" prefWidth="381.0" spacing="10.0">
@@ -35,8 +34,8 @@
       </HBox>
       <TableView fx:id="equipTable" prefHeight="261.0" prefWidth="391.0">
         <columns>
-          <TableColumn fx:id="typeColumn" prefWidth="206.0" text="Тип" />
-          <TableColumn fx:id="countColumn" minWidth="0.0" prefWidth="97.0" text="Кол-во" />
+          <TableColumn fx:id="typeColumn" prefWidth="206.0" resizable="false" text="Тип" />
+          <TableColumn fx:id="countColumn" minWidth="0.0" prefWidth="97.0" resizable="false" text="Кол-во" />
         </columns>
       </TableView>
       <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="391.0">

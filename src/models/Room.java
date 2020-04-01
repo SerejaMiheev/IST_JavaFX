@@ -1,6 +1,9 @@
 package models;
 
+import javafx.beans.InvalidationListener;
 import javafx.beans.property.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.control.CheckBox;
 import models.Equipment;
@@ -11,7 +14,9 @@ public class Room extends Section {
     private ObservableList<Equipment> equipments = new SimpleListProperty<>();
     private CheckBox selected = new CheckBox();
 
-    public Room(){}
+    public Room(){
+        number.set(0);
+    }
 
     public Room(int number){
         this.number.set(number);
@@ -47,12 +52,26 @@ public class Room extends Section {
     }
 
     public String toString(){
-        if (getEquipments().size() > 0){
-            return "Номер комнаты: "+getNumber()+"\nСписок оборудования: "+getEquipments().toString();
+        if ((!getEquipments().isEmpty()) && (!getCameras().isEmpty())){
+            return "Номер комнаты: "+getNumber()+"\nСписок оборудования: "+getEquipments().toString()+"\nСписок камер: "+getCameras().toString();
         }
         else {
-            return "Номер комнаты: "+getNumber();
+            if((!getEquipments().isEmpty()) && (getCameras().isEmpty())){
+                return "Номер комнаты: "+getNumber()+"\nСписок оборудования: "+getEquipments().toString();
+            }
+            else{
+                if((getEquipments().isEmpty()) && (!getCameras().isEmpty())){
+                    return "Номер комнаты: "+getNumber()+"\nСписок камер: "+getCameras().toString();
+                }
+                else {
+                    return "Номер комнаты: "+getNumber();
+                }
+            }
         }
+    }
+
+    public StringProperty stringProperty(){
+        return new SimpleStringProperty(toString());
     }
     /*public void print(){
         System.out.print("Статус: ");

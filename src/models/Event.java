@@ -12,7 +12,10 @@ public class Event extends EntityClass {
     private ObjectProperty<Camera> camera = new SimpleObjectProperty<>();
     private ObjectProperty<Person> person = new SimpleObjectProperty<>();
     private StringProperty record = new SimpleStringProperty();
-    private Event(){}
+
+    public Event(){
+        date.set(new Date());
+    }
 
     public Event(Camera camera, Person person){
         date.set(new Date());
@@ -71,7 +74,16 @@ public class Event extends EntityClass {
         }
 
     public String toString() {
-        return "Дата и время наступления события: " + getDate().toString() + "\nЧеловек: " + getPerson().toString() + "\nКамера: " + getCamera().getNumbercam() + "\nЗапись события: " + record;
+        if(!person.get().getFio().isBlank()) {
+            return "Человек: " + getPerson().toString() + getCamera().toString();
+        }
+        else {
+            return getCamera().toString();
+        }
+    }
+
+    public StringProperty stringProperty(){
+        return new SimpleStringProperty(toString());
     }
     /*public void print(){
         System.out.print("Дата и время наступления события: ");

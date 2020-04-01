@@ -25,23 +25,23 @@ public class TOEController {
     private TypeGateway typeGateway = GWRegistry.getInstance().getTypeGateway();
     private ObservableList<Equipment.TypeOfEquipments> types = FXCollections.observableArrayList(typeGateway.all());
 
-    public void setApp(Main app){
+    public void setApp(Main app) {
         this.app = app;
     }
 
-    public void initialize(){
+    public void initialize() {
         typeTable.setItems(types);
         typeColumn.setCellValueFactory(item -> item.getValue().typeofequipmentProperty());
     }
 
     public void addType() throws IOException {
         Equipment.TypeOfEquipments typeOfEquipments = new Equipment.TypeOfEquipments();
-        if(!this.app.OpenTOEAdd(typeOfEquipments)){
+        if (!this.app.OpenTOEAdd(typeOfEquipments)) {
             this.types.add(typeOfEquipments);
         }
     }
 
-    public void delType(){
+    public void delType() {
         Equipment.TypeOfEquipments typeOfEquipments = this.typeTable.getSelectionModel().getSelectedItem();
         if (typeOfEquipments != null) {
             this.typeGateway.delete(typeOfEquipments.getId());
@@ -51,13 +51,13 @@ public class TOEController {
 
     public void edit() throws IOException {
         Equipment.TypeOfEquipments typeOfEquipments = this.typeTable.getSelectionModel().getSelectedItem();
-        if (typeOfEquipments != null){
+        if (typeOfEquipments != null) {
             this.app.OpenTOEAdd(typeOfEquipments);
         }
     }
 
-    public void cancel(){
-        Stage stage = (Stage)this.typeTable.getScene().getWindow();
+    public void cancel() {
+        Stage stage = (Stage) this.typeTable.getScene().getWindow();
         stage.close();
     }
 }

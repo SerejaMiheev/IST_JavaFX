@@ -68,11 +68,6 @@ public class Floor extends Section {
         return roomonfloor;
     }
 
-    public IntegerProperty count(){
-        countCamera.set(this.cameras.size());
-        return countCamera;
-    }
-
     public String toString(){
         return "Номер этажа: "+getNumber()+"\nКомнаты на этаже: "+getRoomonfloor().toString();
     }

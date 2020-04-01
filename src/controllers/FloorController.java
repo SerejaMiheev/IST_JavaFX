@@ -18,36 +18,36 @@ public class FloorController {
     @FXML
     TableView<Floor> floorTable;
     @FXML
-    TableColumn<Floor,Number> floorColumn;
+    TableColumn<Floor, Number> floorColumn;
     @FXML
-    TableColumn<Floor,Number> countFloor;
+    TableColumn<Floor, Number> countFloor;
     @FXML
-    TableColumn<Floor,Number> countCamera;
+    TableColumn<Floor, Number> countCamera;
 
     private FloorGateway floorGateway = GWRegistry.getInstance().getFloorGateway();
     private ObservableList<Floor> floors = FXCollections.observableArrayList(floorGateway.all());
     private Main app;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         floorTable.setItems(floors);
         floorColumn.setCellValueFactory(item -> item.getValue().numberProperty());
         countFloor.setCellValueFactory(cellDate -> cellDate.getValue().countRoomProperty());
         countCamera.setCellValueFactory(cellDate -> cellDate.getValue().count());
     }
 
-    public void setApp(Main app){
+    public void setApp(Main app) {
         this.app = app;
     }
 
     public void Add() throws IOException {
         Floor floor = new Floor();
-        if(!this.app.OpenFloorAdd(floor)){
+        if (!this.app.OpenFloorAdd(floor)) {
             this.floors.add(floor);
         }
     }
 
-    public void Del(){
+    public void Del() {
         Floor floor = this.floorTable.getSelectionModel().getSelectedItem();
         if (floor != null) {
             this.floorGateway.delete(floor.getId());
@@ -69,8 +69,8 @@ public class FloorController {
         }
     }
 
-    public void cancel(){
-        Stage stage = (Stage)this.floorTable.getScene().getWindow();
+    public void cancel() {
+        Stage stage = (Stage) this.floorTable.getScene().getWindow();
         stage.close();
     }
 }

@@ -47,6 +47,11 @@ public class Section extends EntityClass {
         countCamera.set(this.cameras.size());
     }
 
+    public IntegerProperty count(){
+        countCamera.set(this.cameras.size());
+        return countCamera;
+    }
+
     /*public void print(){
         System.out.print("Номер секции: ");
         System.out.println(numsection);

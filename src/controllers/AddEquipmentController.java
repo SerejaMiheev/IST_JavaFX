@@ -3,6 +3,8 @@ package controllers;
 import exceptions.EntityNotFound;
 import gw.EquipmentGateway;
 import gw.TypeGateway;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -32,24 +34,36 @@ public class AddEquipmentController {
         return isCancel;
     }
 
-    public void setEquipment(Equipment equipment) {
+    public void setEquipment(Equipment equipment){
         this.equipment = equipment;
-        if (!equipment.getTypeOfEquipment().getTypeOfEquipment().isEmpty()){
-            this.countText.setText(equipment.getTypeOfEquipment().getTypeOfEquipment());
+        if (!this.equipment.getTypeOfEquipment().toString().isEmpty()){
+            this.typeEquip.setValue(equipment.getTypeOfEquipment());
         }
+        this.countText.setText(String.valueOf(this.equipment.getCountOfEquipment()));
     }
 
     public void initialize() {
         this.typeEquip.setItems(FXCollections.observableArrayList(this.typeGateway.all()));
+
+        countText.textProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (newValue.matches("\\d*")) {
+                    countText.setText(newValue);
+                } else {
+                    countText.setText(oldValue);
+                }
+            }
+        });
     }
 
     public void addEquip() throws EntityNotFound {
         if ((!this.countText.getText().isEmpty()) & (!this.typeEquip.getSelectionModel().isEmpty())) {
             int count = Integer.parseInt(countText.getText());
-            Equipment.TypeOfEquipments type = this.typeEquip.getSelectionModel().getSelectedItem();
+            Equipment.TypeOfEquipments selectedItem = this.typeEquip.getSelectionModel().getSelectedItem();
 
             this.equipment.setCountOfEquipment(count);
-            this.equipment.setTypeOfEquipment(type);
+            this.equipment.setTypeOfEquipment(selectedItem);
 
             if (this.equipment.isSaved()) {
                 this.equipmentGateway.update(this.equipment);

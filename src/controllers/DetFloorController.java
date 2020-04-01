@@ -20,14 +20,14 @@ public class DetFloorController {
     ListView<Camera> camerasListView;
 
 
-    public void setFloor(Floor floor){
+    public void setFloor(Floor floor) {
         numberLabel.setText(String.valueOf(floor.getNumber()));
         roomListView.setItems(floor.getRooms());
         camerasListView.setItems(floor.getCamerasOList());
 
     }
 
-    public void Cancel(){
+    public void Cancel() {
         Stage stage = (Stage) numberLabel.getScene().getWindow();
         stage.close();
     }
