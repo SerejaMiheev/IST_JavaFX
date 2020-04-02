@@ -18,7 +18,7 @@ public class EquipmentController {
     TableView<Equipment> equipTable;
 
     @FXML
-    TableColumn<Equipment, String> typeColumn;
+    TableColumn<Equipment, Equipment.TypeOfEquipments> typeColumn;
 
     @FXML
     TableColumn<Equipment, Number> countColumn;
@@ -33,7 +33,7 @@ public class EquipmentController {
 
     public void initialize() {
         equipTable.setItems(equipments);
-        typeColumn.setCellValueFactory(item -> item.getValue().getTypeOfEquipment().typeofequipmentProperty());
+        typeColumn.setCellValueFactory(item -> item.getValue().typeProperty());
         countColumn.setCellValueFactory(item -> item.getValue().countProperty());
     }
 

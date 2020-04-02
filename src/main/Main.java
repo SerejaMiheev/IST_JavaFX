@@ -21,7 +21,7 @@ public class Main extends Application {
         loader.setLocation(this.getClass().getResource("../views/sample.fxml"));
         VBox root = (VBox) loader.load();
 
-        primaryStage.setScene(new Scene(root, 205, 371));
+        primaryStage.setScene(new Scene(root, 214, 303));
         primaryStage.setResizable(false);
         Controller controller = loader.getController();
         controller.setApp(this);

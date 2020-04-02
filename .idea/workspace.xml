@@ -2,37 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/AddEventController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/AddRoomController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/EventController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/RoomController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/event_add_view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/event_view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AddEquipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AddEquipmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AddPersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AddPersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/AddTypeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/AddTypeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/CameraController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/CameraController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/DetFloorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/DetFloorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/EquipmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/EquipmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/FloorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/FloorController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/PersonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/TOEController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/TOEController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gw/EquipmentGateway.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gw/EquipmentGateway.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Camera.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Equipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Floor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Floor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Section.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Section.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/equipment_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/equipment_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/gen_event.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/room_add_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/room_add_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/room_det_view.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/floor_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/floor_view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/person_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/person_view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/room_view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/room_view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/sample.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -272,7 +251,8 @@
       <workItem from="1585559898222" duration="18535000" />
       <workItem from="1585646313406" duration="14367000" />
       <workItem from="1585667458096" duration="712000" />
-      <workItem from="1585729557386" duration="13494000" />
+      <workItem from="1585729557386" duration="13609000" />
+      <workItem from="1585802590327" duration="5696000" />
     </task>
     <servers />
   </component>
@@ -349,6 +329,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1583993130028" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/registry/GWRegistry.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/registry/GWRegistry.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/registry/GWRegistry.java</url>
+          <line>49</line>
+          <properties class="registry.GWRegistry" method="getInstance">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/IST_JavaFX$Main.ic" NAME="Main Coverage Results" MODIFIED="1584878180607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -52,6 +52,10 @@ public class Room extends Section {
     }
 
     public String toString(){
+        return String.valueOf(getNumber());
+    }
+
+    /*public String toString(){
         if ((!getEquipments().isEmpty()) && (!getCameras().isEmpty())){
             return "Номер комнаты: "+getNumber()+"\nСписок оборудования: "+getEquipments().toString()+"\nСписок камер: "+getCameras().toString();
         }
@@ -68,7 +72,7 @@ public class Room extends Section {
                 }
             }
         }
-    }
+    }*/
 
     public StringProperty stringProperty(){
         return new SimpleStringProperty(toString());

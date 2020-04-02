@@ -39,7 +39,7 @@
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="75.0" resizable="false" text="ID" />
           <TableColumn fx:id="fioColumn" prefWidth="306.0" resizable="false" text="ФИО" />
-            <TableColumn fx:id="roomColumn" prefWidth="75.0" resizable="false" text="Комната" />
+            <TableColumn fx:id="roomColumn" prefWidth="75.0" resizable="true" text="Комната" />
         </columns>
       </TableView>
       <Button mnemonicParsing="false" onAction="#cancel" prefHeight="39.0" prefWidth="73.0" text="Закрыть">

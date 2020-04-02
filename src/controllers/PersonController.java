@@ -9,6 +9,7 @@ import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 import main.Main;
 import models.Person;
+import models.Room;
 import registry.GWRegistry;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class PersonController {
     TableColumn<Person, String> fioColumn;
 
     @FXML
-    TableColumn<Person, Number> roomColumn;
+    TableColumn<Person, Room> roomColumn;
 
     private PersonGateway personGateway = GWRegistry.getInstance().getPersonGateway();
     private ObservableList<Person> persons = FXCollections.observableArrayList(personGateway.all());
@@ -34,7 +35,7 @@ public class PersonController {
         personTable.setItems(persons);
         idColumn.setCellValueFactory(item -> item.getValue().idProperty());
         fioColumn.setCellValueFactory(item -> item.getValue().fioProperty());
-        roomColumn.setCellValueFactory(item -> item.getValue().roomProperty().get().numberProperty());
+        roomColumn.setCellValueFactory(item -> item.getValue().roomProperty());
     }
 
     public void setApp(Main app) {

@@ -71,7 +71,7 @@ public class Camera extends EntityClass {
 
     @Override
     public String toString() {
-        return "\nНомер камеры: " + getNumbercam() + ". Путь записи: " + getLocrecord();
+        return "Номер камеры: " + getNumbercam() + ". Путь записи: " + getLocrecord();
 }
     /*public void print(){
         System.out.print("Номер камеры: ");
